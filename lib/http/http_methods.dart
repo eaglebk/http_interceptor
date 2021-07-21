@@ -1,12 +1,5 @@
 /// Enum representation of all http methods.
-enum Method {
-  HEAD,
-  GET,
-  POST,
-  PUT,
-  PATCH,
-  DELETE,
-}
+enum Method { HEAD, GET, POST, PUT, PATCH, DELETE, OPTIONS }
 
 /// Parses an string into a Method Enum value.
 Method methodFromString(String method) {
@@ -23,6 +16,8 @@ Method methodFromString(String method) {
       return Method.PATCH;
     case "DELETE":
       return Method.DELETE;
+    case "OPTIONS":
+      return Method.OPTIONS;
   }
   throw ArgumentError.value(method, "method", "Must be a valid HTTP Method.");
 }
@@ -42,5 +37,7 @@ String methodToString(Method method) {
       return "PATCH";
     case Method.DELETE:
       return "DELETE";
+    case Method.OPTIONS:
+      return "OPTIONS";
   }
 }

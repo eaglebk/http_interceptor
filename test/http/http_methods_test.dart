@@ -25,6 +25,17 @@ main() {
       // Assert
       expect(method, equals(Method.GET));
     });
+    test("with OPTIONS method", () {
+      // Arrange
+      Method method;
+      String methodString = "OPTIONS";
+
+      // Act
+      method = methodFromString(methodString);
+
+      // Assert
+      expect(method, equals(Method.OPTIONS));
+    });
     test("with POST method", () {
       // Arrange
       Method method;
@@ -93,6 +104,17 @@ main() {
 
       // Assert
       expect(methodString, equals("GET"));
+    });
+    test("to 'OPTIONS' string.", () {
+      // Arrange
+      String methodString;
+      Method method = Method.OPTIONS;
+
+      // Act
+      methodString = methodToString(method);
+
+      // Assert
+      expect(methodString, equals("OPTIONS"));
     });
     test("to 'POST' string.", () {
       // Arrange

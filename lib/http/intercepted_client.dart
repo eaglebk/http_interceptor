@@ -23,6 +23,7 @@ import 'interceptor_contract.dart';
 /// httpClient.get(...);
 /// httpClient.post(...);
 /// httpClient.put(...);
+/// httpClient.options(...);
 /// httpClient.delete(...);
 /// httpClient.head(...);
 /// httpClient.patch(...);
@@ -84,6 +85,18 @@ class InterceptedClient extends BaseClient {
   }) =>
       _sendUnstreamed(
         method: Method.GET,
+        url: url,
+        headers: headers,
+        params: params,
+      );
+
+  Future<Response> options(
+    Uri url, {
+    Map<String, String>? headers,
+    Map<String, dynamic>? params,
+  }) =>
+      _sendUnstreamed(
+        method: Method.OPTIONS,
         url: url,
         headers: headers,
         params: params,

@@ -20,6 +20,7 @@ import 'interceptor_contract.dart';
 /// http.get(...);
 /// http.post(...);
 /// http.put(...);
+/// http.options(...);
 /// http.delete(...);
 /// http.head(...);
 /// http.patch(...);
@@ -64,6 +65,12 @@ class InterceptedHttp {
       {Map<String, String>? headers, Map<String, dynamic>? params}) async {
     return _withClient(
         (client) => client.get(url, headers: headers, params: params));
+  }
+
+  Future<Response> options(url,
+      {Map<String, String>? headers, Map<String, dynamic>? params}) async {
+    return _withClient(
+        (client) => client.options(url, headers: headers, params: params));
   }
 
   Future<Response> post(url,
